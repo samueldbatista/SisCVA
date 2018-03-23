@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="deprovU" transaction-type="RESOURCE_LOCAL">
+
+        <class>br.pcrn.deprov.dominio.Veiculo</class>
+        <class>br.pcrn.deprov.dominio.Fabricante</class>
+        <class>br.pcrn.deprov.dominio.Modelo</class>
+        <class>br.pcrn.deprov.dominio.Cor</class>
+        <class>br.pcrn.deprov.dominio.Pericia</class>
+        <class>br.pcrn.deprov.dominio.Tipo</class>
+        <class>br.pcrn.deprov.dominio.DadosOcorrencia</class>
+        <class>br.pcrn.deprov.dominio.Situacao</class>
+        <class>br.pcrn.deprov.dominio.Foto</class>
+        <class>br.pcrn.deprov.dominio.Ocorrencia</class>
+        <class>br.pcrn.deprov.dominio.Local</class>
+        <class>br.pcrn.deprov.dominio.Seguro</class>
+        <class>br.pcrn.deprov.dominio.Tarefa</class>
+        <class>br.pcrn.deprov.dominio.Delegacia</class>
+        <class>br.pcrn.deprov.dominio.Documento</class>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect" />
+
+             <!--dados da conexao -->
+            <property name="javax.persistence.jdbc.driver"
+                      value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:postgresql://127.0.0.1:5432/deprov_restore" />
+            <property name="javax.persistence.jdbc.user"
+                      value="postgres" />
+            <property name="javax.persistence.jdbc.password"
+                      value="postgres" />
+
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+
+
+
+
+        </properties>
+    </persistence-unit>
+
+
+</persistence>
