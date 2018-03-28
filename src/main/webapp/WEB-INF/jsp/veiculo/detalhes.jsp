@@ -33,9 +33,11 @@
                     <div class="panel-heading" style="padding-bottom: 0px;">
                         <div class="row">
                             <h4 class="col-md-9">Dados do veículo</h4>
-                            <div class="col-md-3" align="right">
-                                <a class="btn btn-info" href="${linkTo[VeiculoController].editar}?id=${veiculo.id}">Editar Veículo</a>
-                            </div>
+                            <c:if test="${administradorDelegacia}">
+                                <div class="col-md-3" align="right">
+                                    <a class="btn btn-info" href="${linkTo[VeiculoController].editar}?id=${veiculo.id}">Editar Veículo</a>
+                                </div>
+                            </c:if>
                         </div>
                     </div>
                     <div class="panel-body" style="padding-top: 0px">

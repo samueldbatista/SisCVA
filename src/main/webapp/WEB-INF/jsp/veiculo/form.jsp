@@ -80,6 +80,18 @@
             <input name="veiculo.id" value="${veiculo.id}" type="hidden"/>
             <input name="veiculo.dadosOcorrencia.id" value="${veiculo.dadosOcorrencia.id}" type="hidden"/>
             <input name="veiculo.delegacia.id" value="${idDelegacia}" type="hidden"/>
+            <c:forEach items="${veiculo.fotos}" var="foto" begin="0" varStatus="count">
+                <input type="hidden" name="veiculo.fotos[${count.index}].id" value="${foto.id}">
+            </c:forEach>
+            <c:forEach items="${veiculo.documentos}" var="documento" begin="0" varStatus="count">
+                <input type="hidden" name="veiculo.documentos[${count.index}].id" value="${documento.id}">
+            </c:forEach>
+            <c:forEach items="${veiculo.tarefas}" var="tarefa" begin="0" varStatus="count">
+                <input type="hidden" name="veiculo.tarefas[${count.index}].id" value="${tarefa.id}">
+            </c:forEach>
+            <c:forEach items="${veiculo.ocorrencias}" var="ocorrencia" begin="0" varStatus="count">
+                <input type="hidden" name="veiculo.ocorrencias[${count.index}].id" value="${ocorrencia.id}">
+            </c:forEach>
             <div class="tab-content panel painel-cadastro">
                 <div id="menu" class="tab-pane fade in active">
                     <div class="panel-body">

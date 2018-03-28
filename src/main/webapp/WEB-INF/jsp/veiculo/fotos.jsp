@@ -32,6 +32,7 @@
 
     <jsp:body>
         <tags:header titulo="Foto do veículo"/>
+        <c:if test="${administradorMaster}">
         <tags:painel titulo="usuario.titulo.cadastro">
             <form action="${linkTo[VeiculoController].salvarFotos}" method="post" enctype="multipart/form-data">
                 <%--<div class="form-group">--%>
@@ -42,6 +43,7 @@
                 <button class="btn btn-primary" type="submit" style="float: right; margin-top: 16px;">Salvar</button>
             </form>
         </tags:painel>
+        </c:if>
         <div id="foto-container" class="row" style="margin-top: 16px;">
             <c:forEach items="${fotos}" var="foto">
                 <div class="col-md-6" style="margin-bottom: 16px;">

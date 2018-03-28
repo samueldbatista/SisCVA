@@ -45,6 +45,7 @@
 
     <jsp:body>
         <tags:header titulo="Ocorrências do veículo"/>
+        <c:if test="${administradorMaster}">
         <tags:painel titulo="ocorrencia.titulo.cadastro" tipo="panel-default">
             <form action="${linkTo[OcorrenciaController].salvar}" method="post">
                 <input type="hidden" name="ocorrencia.veiculo.id" value="${veiculo.id}">
@@ -60,6 +61,7 @@
                 <button class="btn btn-primary" style="float: right;" type="submit">Salvar</button>
             </form>
         </tags:painel>
+        </c:if>
 
         <tags:painel titulo="ocorrencia.titulo.lista" tipo="panel-default">
             <div class="tabela-deprov">

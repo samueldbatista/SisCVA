@@ -90,7 +90,6 @@ public class VeiculoController extends ControladorDeprov<Veiculo> {
         resultado.include("delegacias", negocio.geraListaOpcoesDelegacia());
     }
 
-    @Seguranca(perfil = Perfil.ADMINISTRADOR_PLANTAO)
     @Path("/veiculo/listagem")
     public void listaDelegacia() {
         List<Veiculo> veiculos = veiculoDao.buscarVeiculosPorDelegacia(usuarioLogado.getUsuario().getDelegacia().getId());

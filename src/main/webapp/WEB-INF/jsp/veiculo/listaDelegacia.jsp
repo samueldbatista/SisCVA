@@ -105,19 +105,25 @@
                             <td align="center">
                                 <a title="Detalhes" href="${linkTo[VeiculoController].detalhes}?id=${veiculo.id}"><i
                                         class="fa fa-eye fa-lg"></i></a>
+                                <c:if test="${administradorDelegacia}">
                                 <a title="Tarefas" href="${linkTo[TarefaController].lista}?id=${veiculo.id}"><i
                                         class="fa fa-tasks fa-lg"></i></a>
+                                </c:if>
                                 <a title="Ocorrencias" href="${linkTo[OcorrenciaController].lista}?id=${veiculo.id}"><i
                                         class="fa fa-archive fa-lg"></i></a>
+                                <c:if test="${administradorMaster}">
                                 <a title="Imprimir relatório"
                                    href="${linkTo[VeiculoController].imprimirRelatorioVeiculo}?id=${veiculo.id}"><i
                                         class="fa fa-file-pdf-o fa-lg"></i></a>
+                                </c:if>
                                 <a title="Fotos"
                                    href="${linkTo[VeiculoController].fotos}?id=${veiculo.id}"><i
                                         class="fa fa-file-photo-o fa-lg"></i></a>
+                                <c:if test="${administradorMaster}">
                                 <a title="Documentos"
                                    href="${linkTo[VeiculoController].documentos}?id=${veiculo.id}"><i
                                         class="fa fa-paperclip fa-lg"></i></a>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>

@@ -7,14 +7,20 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.ControllerMethod;
 import br.com.caelum.vraptor.interceptor.SimpleInterceptorStack;
 import br.pcrn.deprov.controller.LoginController;
+import br.pcrn.deprov.dao.TarefaDao;
+import br.pcrn.deprov.dominio.Tarefa;
 import br.pcrn.deprov.dominio.UsuarioLogado;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @Intercepts
 public class AutenticacaoInterceptor {
     private UsuarioLogado usuario;
     private Result resultado;
+    @Inject
+    private TarefaDao tarefaDao;
+
 
     @Inject
     public AutenticacaoInterceptor(UsuarioLogado usuarioLogado, Result resultado) {
@@ -29,6 +35,9 @@ public class AutenticacaoInterceptor {
     public void autentica(SimpleInterceptorStack stack){
         if(usuario.isLogado()){
             inserirPermicoes(usuario);
+            List<Tarefa> tarefas = tarefaDao.buscarUltimasTarefas();
+            resultado.include("ultimasTarefas",tarefas);
+            resultado.include("totalTarefas",tarefas.size());
             resultado.include("usuarioLogado", usuario);
             stack.next();
         } else {

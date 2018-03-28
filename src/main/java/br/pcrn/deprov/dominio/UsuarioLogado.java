@@ -1,6 +1,7 @@
 package br.pcrn.deprov.dominio;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import java.io.Serializable;
 
 @SessionScoped

@@ -58,6 +58,33 @@
                         <!-- Notifications Menu -->
                         <!-- Tasks Menu -->
                         <!-- User Account Menu -->
+                        <c:if test="${administradorMaster}">
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"><c:out value=""/></i>
+                                <span class="label label-success">${totalTarefas}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Existem ${totalTarefas} tarefas para hoje</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <c:forEach items="${ultimasTarefas}" var="tarefa">
+                                        <li><!-- start message -->
+                                            <a href="#">
+                                                <h6>
+                                                    Veículo ${tarefa.veiculo.modelo.modelo} de placa: ${tarefa.veiculo.placaOriginal}
+                                                </h6>
+                                                <p>${tarefa.descricaoTarefa}</p>
+                                            </a>
+                                        </li>
+                                        </c:forEach>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">See All Messages</a></li>
+                            </ul>
+                        </li>
+                        </c:if>
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
