@@ -29,24 +29,27 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nome:</label>
                         <div class="col-sm-10">
-                            <input name="usuario.nome" value="${usuarioLogado.usuario.nome}" class="form-control" id="focusedInput" type="text" value="Nome do usuário">
+                            <input name="usuario.nome" value="${usuario.nome}" class="form-control" id="focusedInput" type="text" value="Nome do usuário">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="login-input" class="col-sm-2 control-label">Login:</label>
                         <div class="col-sm-10">
-                            <input name="usuario.login" value="${usuarioLogado.usuario.login}" class="form-control" id="login-input" type="text" disabled>
+                            <input name="usuario.login" value="${usuario.login}" class="form-control" id="login-input" type="text" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="cargo-input" class="col-sm-2 control-label">Função:</label>
                         <div class="col-sm-10">
-                            <input name="usuario.funcaoUsuario.chave" value="${usuarioLogado.usuario.funcaoUsuario.chave}" class="form-control" id="cargo-input" type="text" disabled>
+                            <input name="usuario.funcaoUsuario.chave" value="${usuario.funcaoUsuario.chave}" class="form-control" id="cargo-input" type="text" disabled>
                         </div>
                     </div>
-                    <a href="#">modificar senha</a>
+                    <div class="col-sm-12" align="right">
+                    <a href="#">Modificar senha</a>
+                    </div>
 
                 </form>
+
             </div>
         </div>
 
