@@ -24,12 +24,11 @@
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect" />
-
              <!--dados da conexao -->
             <property name="javax.persistence.jdbc.driver"
                       value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:postgresql://127.0.0.1:5432/deprov_restore" />
+                      value="jdbc:postgresql://127.0.0.1:5432/deprov" />
             <property name="javax.persistence.jdbc.user"
                       value="postgres" />
             <property name="javax.persistence.jdbc.password"
@@ -37,10 +36,6 @@
 
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
-
-
-
-
         </properties>
     </persistence-unit>
 

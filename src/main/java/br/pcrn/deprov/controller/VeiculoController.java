@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.observer.download.Download;
 import br.com.caelum.vraptor.observer.download.FileDownload;
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.caelum.vraptor.view.Results;
+import br.pcrn.deprov.anotacoes.ControleDelegacia;
 import br.pcrn.deprov.anotacoes.Seguranca;
 import br.pcrn.deprov.anotacoes.Transacional;
 import br.pcrn.deprov.dao.*;
@@ -108,6 +109,7 @@ public class VeiculoController extends ControladorDeprov<Veiculo> {
         resultado.redirectTo(VeiculoController.class).lista();
     }
 
+    @ControleDelegacia
     @Seguranca(perfil = Perfil.ADMINISTRADOR_DELEGACIA)
     public void editar(Long id) {
         Veiculo veiculo = dao.buscarPorId(id);
@@ -121,6 +123,7 @@ public class VeiculoController extends ControladorDeprov<Veiculo> {
         resultado.include("situacoes",negocio.geraListaOpcoesSituacoes());
         resultado.include("tipos",negocio.geraListaOpcoesTipo());
         resultado.include("veiculo", veiculo);
+        resultado.include("delegacias", negocio.geraListaOpcoesDelegacia());
         resultado.include("idDelegacia", usuarioLogado.getUsuario().getDelegacia().getId());
         resultado.of(this).form();
     }
@@ -275,5 +278,15 @@ public class VeiculoController extends ControladorDeprov<Veiculo> {
         resultado.include("veiculo",veiculo);
     }
 
+
+    @Transacional
+    @Get
+    @Path("/veiculo/removerDocumento/{id}")
+    @Seguranca(perfil = Perfil.ADMINISTRADOR_MASTER)
+    public void removerDocumento(Long id) {
+        Documento documento =  documentoDao.buscarPorId(id);
+        documentoDao.remover(documento);
+        resultado.redirectTo(VeiculoController.class).lista();
+    }
 
 }

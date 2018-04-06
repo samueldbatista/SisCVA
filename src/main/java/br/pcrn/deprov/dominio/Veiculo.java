@@ -46,16 +46,17 @@ public class Veiculo extends Entidade implements Serializable, Cloneable{
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private DadosOcorrencia dadosOcorrencia;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "veiculo")
 	private List<Ocorrencia> ocorrencias;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "veiculo")
 	private List<Foto> fotos;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "veiculo")
 	private List<Tarefa> tarefas;
 
 	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "veiculo_id")
 	private List<Documento> documentos;
 
 	@ManyToOne

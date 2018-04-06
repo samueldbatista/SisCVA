@@ -54,9 +54,11 @@
         <tags:painel titulo="veiculo.documentos" tipo="panel-default">
             <div class="list-group">
                 <c:forEach items="${veiculo.documentos}" var="doc">
-                    <a href="${doc.path}" class="list-group-item list-group-item-action">
-                            ${doc.descricao}<span class="badge timestamp">${doc.data}</span>
+                <li class="list-group-item"><a href="${doc.path}">${doc.descricao}</a><span class="badge timestamp">${doc.data}</span>
+                    <a href="${linkTo[VeiculoController].removerDocumento}${doc.id}" style="float: right; margin-right: 8px;">
+                        <i class="fa fa-trash-o fa-lg"></i>
                     </a>
+                </li>
                 </c:forEach>
             </div>
         </tags:painel>

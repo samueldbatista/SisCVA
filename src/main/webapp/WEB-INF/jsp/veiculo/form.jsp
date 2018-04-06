@@ -79,7 +79,6 @@
         <form id="form-veiculo" action="${linkTo[VeiculoController].salvar}" method="post">
             <input name="veiculo.id" value="${veiculo.id}" type="hidden"/>
             <input name="veiculo.dadosOcorrencia.id" value="${veiculo.dadosOcorrencia.id}" type="hidden"/>
-            <input name="veiculo.delegacia.id" value="${idDelegacia}" type="hidden"/>
             <c:forEach items="${veiculo.fotos}" var="foto" begin="0" varStatus="count">
                 <input type="hidden" name="veiculo.fotos[${count.index}].id" value="${foto.id}">
             </c:forEach>
@@ -298,6 +297,30 @@
                                 <input id="dataEntrada" type="text" name="veiculo.dadosOcorrencia.dataEntrada" class="form-control input-sm datePicker"
                                        value="<tag:localDate date="${veiculo.dadosOcorrencia.dataEntrada}"/>">
                             </div>
+                            <c:choose>
+                                <c:when test="${usuarioLogado.administrador}">
+                                    <div class="form-group">
+                                        <label for="delegacia">Delegacia:</label>
+                                        <select class="form-control input-sm" required id="delegacia" name="veiculo.delegacia.id">
+                                            <option></option>
+                                            <c:forEach items="${delegacias}" var="delegacia">
+                                                <c:choose>
+                                                    <c:when test="${delegacia.valor == veiculo.delegacia.id}">
+                                                        <option value="${delegacia.valor}" selected="true">${delegacia.chave}</option>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <option value="${delegacia.valor}">${delegacia.chave}</option>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </c:forEach>
+
+                                        </select>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <input name="veiculo.delegacia.id" value="${idDelegacia}" type="hidden"/>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>

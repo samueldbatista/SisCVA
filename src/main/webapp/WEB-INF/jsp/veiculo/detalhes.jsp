@@ -33,7 +33,7 @@
                     <div class="panel-heading" style="padding-bottom: 0px;">
                         <div class="row">
                             <h4 class="col-md-9">Dados do veículo</h4>
-                            <c:if test="${administradorDelegacia}">
+                            <c:if test="${administradorMaster or (usuarioLogado.usuario.delegacia.id == veiculo.delegacia.id)}">
                                 <div class="col-md-3" align="right">
                                     <a class="btn btn-info" href="${linkTo[VeiculoController].editar}?id=${veiculo.id}">Editar Veículo</a>
                                 </div>

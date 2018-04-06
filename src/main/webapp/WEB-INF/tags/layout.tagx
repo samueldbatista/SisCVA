@@ -91,7 +91,7 @@
                                 <!-- The user image in the navbar-->
                                 <img src="${ctx}/resources/imagens/boss.png" class="user-image" alt="User Image"/>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Samuel Dantas</span>
+                                <span class="hidden-xs">${usuarioLogado.usuario.nome}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
@@ -106,7 +106,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                        <a href="${linkTo[PerfilController].perfil}" class="btn btn-default btn-flat">Perfil</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="${linkTo[LoginController].logout}"
@@ -190,6 +190,7 @@
 
         <div class="content-wrapper">
             <section class="content container-fluid">
+                <jsp:include page="/WEB-INF/jsp/erros/msgError.jsp"/>
                 <jsp:doBody/>
 
             </section>

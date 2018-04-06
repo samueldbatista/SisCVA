@@ -19,7 +19,7 @@ public class Fabricante extends Entidade implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "fabricante")
 	private List<Modelo> modelo;
 
 	private String fabricante;
